@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{box-sizing: border-box}
+        :root{
+            --button-height: 32px;
+            --font-size: 14px;
+        }
+    </style>
+    <style>
+        .g-button{
+            height: var(--button-height);
+            font-size: var(--font-size);
+        }
+    </style>
+
+</head>
+<body>
+<div id="app">
+    <g-button>button</g-button>
+{{message}}
+</div>
+
+<script src="./node_modules/vue/dist/vue.js"></script>
+<script>
+    Vue.component('g-button',{
+        template: `<button class="g-button"><slot/></button>`
+    });
+
+    new Vue({
+        el: '#app',
+        data: {
+            message: 'hi'
+        }
+    })
+</script>
+</body>
+</html>
